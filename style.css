@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Rubik:wght@300&display=swap');
+
+:root {
+    font-family: "Josefin Sans", sans-serif;
+    --bg0: #202020;
+    --fg0: #fefefe;
+    --acc1: aqua;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg0);
+    color: var(--fg0);
+}
+
+span {
+    color: var(--acc1);
+}
+
+#title-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+#title-container * {
+    text-align: center;
+    padding: .2em;
+    position: relative;
+}
+
+
+#title-container > *:nth-child(1) {
+    font-size: 6em;
+    background-color: var(--bg0);
+    transform-origin: center;
+    transform: scale(0);
+    animation: title-scale 1s forwards ease;
+}
+
+@keyframes title-scale {
+    to {
+        transform: scale(1);
+    }
+}
+
+
+#title-container > *:not(:nth-child(1))::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: top;
+    background-color: var(--bg0);
+    animation: scale-y-0 1s forwards 1s ease;
+}
+
+#title-container > *:nth-child(3)::after {
+    transform-origin: bottom;
+    animation: scale-y-0 1s forwards 2s ease;
+}
+
+
+@keyframes scale-y-0 {
+    to {
+        transform: scaleY(0);
+    }
+}
+
+@keyframes scale-x-0 {
+    to {
+        transform: scaleX(0);
+    }
+}

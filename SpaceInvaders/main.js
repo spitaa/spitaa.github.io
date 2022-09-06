@@ -1,6 +1,5 @@
 import { AlienGroup } from './scripts/enemy.js'
 import GameObject from './scripts/engine.js'
-import Ministage from './ministage.js'
 import Player from './scripts/player.js'
 
 const pressedKeys = {}
