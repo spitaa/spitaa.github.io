@@ -11,21 +11,6 @@
     width: 0px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: var(--bg0);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #555;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: var(--acc1);
-}
-
 *,
 *::after,
 *::before {
@@ -37,7 +22,6 @@
 
 body {
     background-color: var(--bg0);
-    height: 200vh;
     overflow-x: hidden;
 }
 
