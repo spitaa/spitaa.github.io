@@ -5,11 +5,10 @@
     --bg0: #202020;
     --fg0: #fefefe;
     --acc1: #20c2eb;
-    scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
-    /* width: 0px; */
+    width: 0px;
 }
 
 *,
@@ -23,7 +22,7 @@
 
 body {
     background-color: var(--bg0);
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 span {
@@ -34,12 +33,20 @@ nav {
     position: absolute;
     z-index: 500;
     opacity: 0;
+    pointer-events: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     padding: 1.5em;
     animation: fade-in 1s forwards ease 3s;
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
 
 nav.top {
@@ -68,12 +75,6 @@ nav.right {
     top: 50vh;
     right: 0;
     transform: translateY(-50%);
-}
-
-@keyframes fade-in {
-    to {
-        opacity: 1;
-    }
 }
 
 a {
@@ -171,14 +172,53 @@ a:hover::after {
 section {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transition: translate 2s ease;
+}
+
+section.top {
+    bottom: 200vh;
+    left: 0;
+}
+
+section.bottom {
+    top: 200vh;
+    left: 0;
+}
+
+section.left {
+    right: 200vw;
+    top: 0;
+}
+
+section.right {
+    left: 200vw;
+    top: 0;
+}
+
+#home {
     position: relative;
 }
 
-section.bottom {}
-
-section.left {
-    position: absolute;
-    left: 100vw;
+.slide-right {
+    translate: 200% 0 !important;
 }
 
-section.right {}
+.slide-left {
+    translate: -200% 0 !important;
+}
+
+.slide-up {
+    translate: 0 -200% !important;
+}
+
+.slide-down {
+    translate: 0 200% !important;
+}
+
+.slide-center {
+    translate: 0 0 !important;
+}
