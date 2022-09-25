@@ -27,9 +27,11 @@
     color: var(--fg0);
 }
 
+html,
 body {
     background-color: var(--bg0);
     overflow: hidden;
+    position: relative;
 }
 
 span {
