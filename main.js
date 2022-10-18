@@ -62,3 +62,18 @@ window.addEventListener("keydown", function (e) {
             break;
     }
 })
+
+const reposGET = await fetch('https://api.github.com/users/spitaa/repos').then((response) => response.json())
+
+const repos = {}
+
+reposGET.forEach(async (repo) => {
+    repos[repo.name] = { langs: [] }
+    const langs = await fetch(repo.languages_url).then((response) => response.json())
+
+    for (const [lang, rows] of Object.entries(langs)) {
+        repos[repo.name].langs.push([lang, rows])
+    }
+})
+
+console.log(repos);
